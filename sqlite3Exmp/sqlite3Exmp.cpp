@@ -103,59 +103,13 @@ int main()
 	rc = add_record(db, 7, "Ahmed");
 	rc = add_record(db, 7, "Ahmed");
 	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
 
 
 	show_results(db);
 	sqlite3_close(db);
+
+
+	std::cin.get();
 
 
 
