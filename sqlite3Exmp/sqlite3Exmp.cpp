@@ -85,7 +85,6 @@ int main()
 
 	int id = 1;
 	const char* name = "Khadiga";
-
 	rc = add_record(db, id, name);
 
 	id = 4;
