@@ -45,17 +45,18 @@ int init_db(sqlite3* db)
 void show_results(sqlite3* db)
 {
 	sqlite3_stmt *stmt;
-	char** pazResult;
-	int pnRow = 0;
-	int pnColumn = 0;
-	char* pzErrmsg;
 
 	const char *zSql = "select * from Ahmed;";
 
 
 	sqlite3_prepare_v2(db, zSql, -1, &stmt, NULL);
 
-	std::cout << sqlite3_column_name16(stmt, 1);
+	std::string id =  sqlite3_column_name(stmt, 0);
+	std::cout << id << "\t" << "|";
+	std::string name =  sqlite3_column_name(stmt, 1);
+	std::cout << name << std::endl;
+	std::cout << "-----------------------" << std::endl;
+
 	while (sqlite3_step(stmt) == SQLITE_ROW)
 	{
 		for (int i = 0; i < sqlite3_column_count(stmt); i++)
@@ -64,7 +65,7 @@ void show_results(sqlite3* db)
 			if ((i % 2) == 1)
 				std::cout << std::endl;
 			else
-				std::cout << "\t";
+				std::cout << "\t"<< "|";
 		}
 
 	}
