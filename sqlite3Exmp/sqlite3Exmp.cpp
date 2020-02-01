@@ -5,10 +5,9 @@
 #include "sqlite3.h"
 #include <string>
 
+sqlite3* db = NULL;
 
-sqlite3* db;
-
-int clean_db(sqlite3* db)
+int clean_db()
 {
 	sqlite3_stmt* stmt;
 	int rc = 0;
@@ -18,6 +17,7 @@ int clean_db(sqlite3* db)
 	sqlite3_finalize(stmt);
 	return rc;
 }
+
 
 int add_record(sqlite3 *db, int id, const char* name)
 {
@@ -34,7 +34,7 @@ int add_record(sqlite3 *db, int id, const char* name)
 
 }
 
-int init_db(sqlite3* db)
+int init_table()
 {
 	int rc = 0;
 	sqlite3_stmt* stmt;
@@ -46,8 +46,25 @@ int init_db(sqlite3* db)
 
 }
 
-void show_results(sqlite3* db)
+void init_db()
 {
+	int rc;
+
+	rc = sqlite3_open("Abed", &db);
+	if (rc) {
+		printf("Error");
+	}
+
+	if (clean_db() == SQLITE_DONE)
+	{
+		rc = init_table();
+		if (rc != SQLITE_DONE) std::cout << "Cannot create the table";
+	}
+
+}
+void show_results()
+{
+    system("cls");
 	sqlite3_stmt *stmt;
 
 	const char *zSql = "select * from Ahmed;";
@@ -99,6 +116,7 @@ void show_results(sqlite3* db)
 
 void new_record()
 {
+
 	int myId = 0;
 	std::string ProName = "";
 	const char *myName = "";
@@ -112,22 +130,8 @@ void new_record()
 
 }
 
-int main()
+void init_UI()
 {
-	int rc;
-
-	rc = sqlite3_open("Abed", &db);
-	if (rc) {
-		printf("Error");
-	}
-
-	if (clean_db(db) == SQLITE_DONE)
-	{
-		rc = init_db(db);
-		if (rc != SQLITE_DONE) std::cout << "Cannot initialize the database";
-	}
-
-	
     bool quit = false;
 	while (!quit)
 	{
@@ -144,15 +148,22 @@ int main()
             new_record();
             break;
         case 's':
-            show_results(db);
+            show_results();
             break;
         default:
             std::cout << "not a valid option" << std::endl;
             break;
         }
-
 	}
 
+}
+
+int main()
+{
+
+    init_db();
+	
+    init_UI();
 
 
 
