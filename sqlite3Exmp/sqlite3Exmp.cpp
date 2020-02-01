@@ -170,11 +170,6 @@ int main()
 	sqlite3_close(db);
 
 
-	std::cin.get();
-
-
-
-
 }
 
 // Programm ausführen: STRG+F5 oder "Debuggen" > Menü "Ohne Debuggen starten"
