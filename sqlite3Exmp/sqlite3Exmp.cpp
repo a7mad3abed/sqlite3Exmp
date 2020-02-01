@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "sqlite3.h"
+#include <string>
 
 int clean_db(sqlite3* db)
 {
@@ -106,29 +107,29 @@ int main()
 	}
 
 	
-
-	int id = 1;
-	const char* name = "Khadiga";
-	rc = add_record(db, id, name);
-
-	id = 4;
-	name = "Mohamed";
-	rc = add_record(db, id, name);
-
-	id = 6;
-	name = "Lobna";
-
-	rc = add_record(db, id, name);
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-	rc = add_record(db, 7, "Ahmed");
-
-
+	int myId = 0;
+	std::string ProName;
+	const char *myName = "";
 	show_results(db);
+	while (1)
+	{
+		std::cout << "Enter a new id:" << std::endl;
+		std::cin >> myId;
+		std::cout << "Enter a new name:" << std::endl;
+		std::cin >> ProName;
+		myName = ProName.c_str();
+		add_record(db, myId, myName);
+		show_results(db);
+		std::cout << "press n to new entry, press q to exit" << std::endl;
+		char c;
+		std::cin >> c;
+	
+		if (c == 'q')
+			break;
+		if (c == 'n')
+			continue;
+	}
+
 
 
 
