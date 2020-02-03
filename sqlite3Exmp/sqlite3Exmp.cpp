@@ -8,18 +8,10 @@
 int main()
 {
 
-    init_db();
-	
-    init_UI();
+    DBManager* dbman = new DBManager();
+    dbman->init_UI();
 
-
-
-	sqlite3_close(db);
-
-
-	std::cin.get();
-
-
+    delete dbman;
 
 
 }
