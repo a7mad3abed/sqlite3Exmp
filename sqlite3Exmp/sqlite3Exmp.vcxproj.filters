@@ -21,9 +21,15 @@
     <ClCompile Include="sqlite3.c">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="DBManager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Downloads\sqlite-amalgamation-3310000\sqlite-amalgamation-3310000\sqlite3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="DBManager.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
