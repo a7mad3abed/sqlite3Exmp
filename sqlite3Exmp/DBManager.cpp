@@ -117,9 +117,17 @@ void DBManager::new_record()
 
     std::cout << "Enter a new id:" << std::endl;
     std::cin >> myId;
+	if (!isdigit(myId))
+	{
+		std::cout << "please enter a valid id" << std::endl;
+		std::cin >> myId;
+	}
+
     std::cout << "Enter a new name:" << std::endl;
     std::cin >> ProName;
+
     myName = ProName.c_str();
+	
     add_record(myId, myName);
 }
 
