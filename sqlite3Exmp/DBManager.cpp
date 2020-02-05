@@ -91,21 +91,6 @@ void DBManager::show_results()
 		}
 
 	}
-
-	/*
-	sqlite3_get_table(db, zSql, &pazResult, &pnRow, &pnColumn, &pzErrmsg);
-
-	for (int i = 0; i <= pnRow; i++)
-		for (int j = 0; j < pnColumn; j++)
-		{
-			std::cout << pazResult[i * 2 + j];
-			if ((i * 2 + j) % 2 == 1)
-				std::cout << std::endl;
-			else
-				std::cout << "\t";
-		}
-		*/
-
 }
 
 void DBManager::new_record()
@@ -116,15 +101,28 @@ void DBManager::new_record()
 	const char *myName = "";
 
     std::cout << "Enter a new id:" << std::endl;
-    std::cin >> myId;
-	if (!isdigit(myId))
+
+	while (!(std::cin >> myId))
 	{
+		std::cin.clear();
+		std::cin.ignore(1000, '\n');
 		std::cout << "please enter a valid id" << std::endl;
-		std::cin >> myId;
 	}
 
     std::cout << "Enter a new name:" << std::endl;
-    std::cin >> ProName;
+
+	std::cin >> ProName;
+
+	while (isdigit(ProName[0]))
+	{
+		if (ProName[0] == 'q') return;
+		std::cin.clear();
+		std::cin.ignore(1000, '\n');
+		std::cout << "please enter a valid name" << std::endl;
+		std::cin >> ProName;
+
+	}
+
 
     myName = ProName.c_str();
 	
