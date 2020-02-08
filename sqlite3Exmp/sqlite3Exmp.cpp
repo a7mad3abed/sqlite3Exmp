@@ -2,14 +2,17 @@
 //
 
 #include "DBManager.h"
+#include "MyApp.h"
 
 
 
 int main()
 {
 
+    MyApp *myApp = new MyApp();
+    myApp->OnInit();
     DBManager* dbman = new DBManager();
-    dbman->init_UI();
+    //dbman->init_UI();
 
     delete dbman;
 
