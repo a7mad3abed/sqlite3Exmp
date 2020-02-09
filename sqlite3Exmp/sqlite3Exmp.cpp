@@ -11,10 +11,10 @@ int main()
 
     MyApp *myApp = new MyApp();
     myApp->OnInit();
-    DBManager* dbman = new DBManager();
+    //DBManager* dbman = new DBManager();
     //dbman->init_UI();
 
-    delete dbman;
+    //delete dbman;
 
 
 }
