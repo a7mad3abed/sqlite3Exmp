@@ -1,5 +1,8 @@
 #include "MyFrame.h"
 
+wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
+EVT_BUTTON(-55, MyFrame::doSomething)
+wxEND_EVENT_TABLE()
 
 MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     : wxFrame(NULL, wxID_ANY, title, pos, size)
@@ -22,4 +25,9 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     gridSizer->Add(staticText01, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
     gridSizer->Add(textCtrl01, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
     SetSizerAndFit(gridSizer);
+}
+
+void MyFrame::doSomething()
+{
+    std::cout << "I did something\n";
 }
