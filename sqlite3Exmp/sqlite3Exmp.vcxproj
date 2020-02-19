@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DataDialog.cpp" />
     <ClCompile Include="DBManager.cpp" />
     <ClCompile Include="MyApp.cpp" />
     <ClCompile Include="MyFrame.cpp" />
@@ -162,7 +163,8 @@
     <ClCompile Include="sqlite3Exmp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\sqlite-amalgamation-3310000\sqlite-amalgamation-3310000\sqlite3.h" />
+    <ClInclude Include=".\sqlite3.h" />
+    <ClInclude Include="DataDialog.h" />
     <ClInclude Include="DBManager.h" />
     <ClInclude Include="MyApp.h" />
     <ClInclude Include="MyFrame.h" />

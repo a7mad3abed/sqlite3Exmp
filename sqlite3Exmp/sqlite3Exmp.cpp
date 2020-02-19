@@ -16,6 +16,8 @@ int main()
 
     //delete dbman;
 
+    delete myApp;
+
 
 }
 
