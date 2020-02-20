@@ -11,7 +11,10 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     : wxFrame(NULL, wxID_ANY, title, pos, size)
 {
     dBM = new DBManager();
-    results = new DataDialog(this, "Show results", wxSize(300,200));
+    dBM->add_record(2, "Ahmed");
+   
+
+    results = new DataDialog(this, "Show results", wxSize(300,200), dBM);
     int width = 0;
     int height = 0;
     this->DoGetSize(&width, &height);
@@ -34,14 +37,16 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 
 void MyFrame::onButtonClicked01(wxCommandEvent& event)
 {
-    dBM->add_record(01, "Ahmed");
+    dBM->add_record(1, "Ahmed");
 
 }
 
 void MyFrame::onButtonClicked02(wxCommandEvent& event)
 {
+    results->refresh();
     results->Show(true);
 }
+
 
 BEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_BUTTON(BUTTON1, MyFrame::onButtonClicked01)

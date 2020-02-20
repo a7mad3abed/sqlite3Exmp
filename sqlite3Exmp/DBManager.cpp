@@ -92,6 +92,35 @@ void DBManager::show_results()
 
 	}
 }
+std::vector<Result> DBManager::retrieveResults()
+{
+	sqlite3_stmt *stmt;
+    std::vector<Result> results;
+
+	const char *zSql = "select * from Ahmed;";
+
+
+	sqlite3_prepare_v2(db, zSql, -1, &stmt, NULL);
+
+	while (sqlite3_step(stmt) == SQLITE_ROW)
+	{
+		Result newResult;
+		for (int i = 0; i < sqlite3_column_count(stmt); i++)
+		{
+
+			if ((i % 2) == 1)
+			{
+				newResult.name = (const char *)sqlite3_column_text(stmt, i);
+			}
+			else
+				newResult.id = (const char *)sqlite3_column_text(stmt, i);
+		}
+		results.push_back(newResult);
+
+	}
+	return results;
+
+}
 
 void DBManager::new_record()
 {
