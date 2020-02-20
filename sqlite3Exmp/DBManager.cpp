@@ -23,14 +23,14 @@ DBManager::~DBManager()
     sqlite3_close(db);
 }
 
-int DBManager::add_record(int id, const char* name)
+int DBManager::add_record( const char *id, const char* name)
 {
 	const char *zSql = "insert into Ahmed (id, name) values (?, ?);";
 	sqlite3_stmt* stmt;
 	int rc = 0;
 
 	sqlite3_prepare_v2(db, zSql, -1, &stmt, 0);
-	sqlite3_bind_int(stmt, 1, id);
+	sqlite3_bind_text(stmt, 1, id, -1, NULL);
 	sqlite3_bind_text(stmt, 2, name, -1, NULL);
 	rc = sqlite3_step(stmt);
 	sqlite3_finalize(stmt);
@@ -52,7 +52,7 @@ int DBManager::init_table()
 {
 	int rc = 0;
 	sqlite3_stmt* stmt;
-	const char *zSql = "CREATE TABLE if not exists Ahmed ( id INTEGER, name TEXT );";
+	const char *zSql = "CREATE TABLE if not exists Ahmed ( id TEXT, name TEXT );";
 	sqlite3_prepare_v2(db, zSql, -1, &stmt, 0);
 	rc = sqlite3_step(stmt);
 	sqlite3_finalize(stmt);
@@ -155,7 +155,7 @@ void DBManager::new_record()
 
     myName = ProName.c_str();
 	
-    add_record(myId, myName);
+   // add_record(myId, myName);
 }
 
 

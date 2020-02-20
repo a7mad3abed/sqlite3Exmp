@@ -11,7 +11,6 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     : wxFrame(NULL, wxID_ANY, title, pos, size)
 {
     dBM = new DBManager();
-    dBM->add_record(2, "Ahmed");
    
 
     results = new DataDialog(this, "Show results", wxSize(300,200), dBM);
@@ -37,15 +36,16 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 
 void MyFrame::onButtonClicked01(wxCommandEvent& event)
 {
-    dBM->add_record(1, "Ahmed");
+    dBM->add_record( "1", "Ahmed");
 
 }
 
 void MyFrame::onButtonClicked02(wxCommandEvent& event)
 {
-    results->refresh();
+    results = new DataDialog(this, "Show results", wxSize(300,200), dBM);
     results->Show(true);
 }
+
 
 
 BEGIN_EVENT_TABLE(MyFrame, wxFrame)

@@ -5,14 +5,13 @@ DataDialog::DataDialog(wxWindow* parent,  const wxString& title, const wxSize &s
     :wxDialog(parent, wxID_ANY, title, wxDefaultPosition, size, wxDEFAULT_DIALOG_STYLE, "results" )
 {
 
-    m_dBM = dBM;
     wxDataViewListCtrl* list = new wxDataViewListCtrl(this, wxID_ANY);
     list->AppendTextColumn("id");
     list->AppendTextColumn("name");
 
     wxVector<wxVariant> data;
 
-    results = m_dBM->retrieveResults();
+    results = dBM->retrieveResults();
 
     for (int i = 0; i < results.size(); i++)
     {
@@ -29,7 +28,4 @@ DataDialog::DataDialog(wxWindow* parent,  const wxString& title, const wxSize &s
 
 }
 
-void DataDialog::refresh()
-{
-    results = m_dBM->retrieveResults();
-}
+
