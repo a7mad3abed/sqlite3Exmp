@@ -31,7 +31,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     gridSizer->Add(textCtrl, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
     gridSizer->Add(button2, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
     gridSizer->Add(textCtrl01, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
-    SetSizerAndFit(gridSizer);
+    SetSizer(gridSizer);
 }
 
 void MyFrame::onButtonClicked01(wxCommandEvent& event)
