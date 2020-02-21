@@ -13,7 +13,7 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     dBM = new DBManager();
    
 
-    results = new DataDialog(this, "Show results", wxSize(300,200), dBM);
+    results = new DataDialog(this, "Show results", wxSize(400,300), dBM);
     int width = 0;
     int height = 0;
     this->DoGetSize(&width, &height);
@@ -23,15 +23,15 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     //sizer->Add(new wxStaticText(this, wxID_ANY, "Text to change",  wxDefaultPosition, wxSize(width/2, 20)), 0, 10, wxALL);
     //sizer->Add(new wxTextCtrl(this, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width/2,20)), 0, 10 , wxALL);
 
-    wxTextCtrl* textCtrl = new wxTextCtrl(this, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width / 2, 20));
-    wxTextCtrl* textCtrl01 = new wxTextCtrl(this, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width / 2, 20));
+    wxTextCtrl* textCtrl = new wxTextCtrl(this, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width / 4, 20));
+    wxTextCtrl* textCtrl01 = new wxTextCtrl(this, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width / 4, 20));
     wxButton* button1 = new wxButton(this, BUTTON1, "add record");
     wxButton* button2 = new wxButton(this, BUTTON2, "Show results");
     gridSizer->Add(button1, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
     gridSizer->Add(textCtrl, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
     gridSizer->Add(button2, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
     gridSizer->Add(textCtrl01, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
-    SetSizer(gridSizer);
+    SetSizerAndFit(gridSizer);
 }
 
 void MyFrame::onButtonClicked01(wxCommandEvent& event)
@@ -42,8 +42,12 @@ void MyFrame::onButtonClicked01(wxCommandEvent& event)
 
 void MyFrame::onButtonClicked02(wxCommandEvent& event)
 {
-    results = new DataDialog(this, "Show results", wxSize(300,200), dBM);
+    results = new DataDialog(this, "Show results", wxSize(400,300), dBM);
     results->Show(true);
+}
+
+MyFrame::~MyFrame()
+{
 }
 
 

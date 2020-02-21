@@ -28,4 +28,16 @@ DataDialog::DataDialog(wxWindow* parent,  const wxString& title, const wxSize &s
 
 }
 
+DataDialog::~DataDialog()
+{
+}
 
+void DataDialog::OnClose(wxCloseEvent& event)
+{
+    Destroy();
+}
+
+
+BEGIN_EVENT_TABLE(DataDialog, wxDialog)
+    EVT_CLOSE(DataDialog::OnClose)
+END_EVENT_TABLE()
