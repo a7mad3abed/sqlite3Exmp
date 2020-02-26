@@ -23,6 +23,8 @@ DataDialog::DataDialog(wxWindow* parent,  const wxString& title, const wxSize &s
         data.clear();
     }
 
+    this->Bind(wxEVT_CLOSE_WINDOW, &DataDialog::OnClose, this);
+
 
 
 
@@ -37,7 +39,8 @@ void DataDialog::OnClose(wxCloseEvent& event)
     Destroy();
 }
 
-
+/*
 BEGIN_EVENT_TABLE(DataDialog, wxDialog)
     EVT_CLOSE(DataDialog::OnClose)
 END_EVENT_TABLE()
+*/

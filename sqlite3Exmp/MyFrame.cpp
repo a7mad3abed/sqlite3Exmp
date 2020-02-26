@@ -28,6 +28,8 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     wxTextCtrl* textCtrl01 = new wxTextCtrl(panel, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width / 3, 20));
     wxButton* button1 = new wxButton(panel, BUTTON1, "add record");
     wxButton* button2 = new wxButton(panel, BUTTON2, "Show results");
+    button1->Bind(wxEVT_BUTTON, &MyFrame::onButtonClicked01, this);
+    button2->Bind(wxEVT_BUTTON, &MyFrame::onButtonClicked02, this);
     gridSizer->Add(button1, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
     gridSizer->Add(textCtrl, wxALIGN_RIGHT | wxALIGN_CENTER_VERTICAL | wxALL);
     gridSizer->Add(button2, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
@@ -53,8 +55,8 @@ MyFrame::~MyFrame()
 }
 
 
-
-BEGIN_EVENT_TABLE(MyFrame, wxFrame)
-    EVT_BUTTON(BUTTON1, MyFrame::onButtonClicked01)
-    EVT_BUTTON(BUTTON2, MyFrame::onButtonClicked02)
-END_EVENT_TABLE()
+//
+//BEGIN_EVENT_TABLE(MyFrame, wxFrame)
+//    EVT_BUTTON(BUTTON1, MyFrame::onButtonClicked01)
+//    EVT_BUTTON(BUTTON2, MyFrame::onButtonClicked02)
+//END_EVENT_TABLE()

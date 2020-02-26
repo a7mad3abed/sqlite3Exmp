@@ -21,6 +21,7 @@ DBManager::DBManager()
 DBManager::~DBManager()
 {
     sqlite3_close(db);
+
 }
 
 int DBManager::add_record( const char *id, const char* name)
