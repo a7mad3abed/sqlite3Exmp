@@ -9,6 +9,8 @@ public:
 	MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
     ~MyFrame();
 	void doSomething();
+    wxTextCtrl* textCtrl;
+    wxTextCtrl* textCtrl01;
 
 
 
