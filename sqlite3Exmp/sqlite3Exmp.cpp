@@ -3,7 +3,7 @@
 
 #include "MyApp.h"
 
-
+using namespace ExmpApp;
 
 int main()
 {

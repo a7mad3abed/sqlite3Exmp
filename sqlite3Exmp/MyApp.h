@@ -1,9 +1,12 @@
 #pragma once
 #include "wx/wx.h"
 
-class MyApp : public wxApp
-{
-public:
-	virtual bool OnInit();
-};
+namespace ExmpApp {
+
+    class MyApp : public wxApp
+    {
+    public:
+        virtual bool OnInit();
+    };
+}
 

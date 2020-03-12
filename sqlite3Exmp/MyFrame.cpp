@@ -1,5 +1,7 @@
 #include "MyFrame.h"
 
+using namespace ExmpApp;
+
 enum
 {
     BUTTON1,

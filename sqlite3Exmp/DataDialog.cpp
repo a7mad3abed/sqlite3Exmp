@@ -1,5 +1,6 @@
 #include "DataDialog.h"
 
+using namespace ExmpApp;
 
 DataDialog::DataDialog(wxWindow* parent,  const wxString& title, const wxSize &size, DBManager *dBM)
     :wxDialog(parent, wxID_ANY, title, wxDefaultPosition, size, wxDEFAULT_DIALOG_STYLE, "results" )
