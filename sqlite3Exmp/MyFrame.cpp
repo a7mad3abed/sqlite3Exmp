@@ -1,65 +1,67 @@
 #include "MyFrame.h"
 
-using namespace ExmpApp;
+namespace ExmpApp {
 
-enum
-{
-    BUTTON1,
-    BUTTON2
-};
+    enum
+    {
+        BUTTON1,
+        BUTTON2
+    };
 
 
-MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
-    : wxFrame(NULL, wxID_ANY, title, pos, size)
-{
-    dBM = new DBManager();
-   
+    MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
+        : wxFrame(NULL, wxID_ANY, title, pos, size)
+    {
+        dBM = new DBManager();
 
-    results = new DataDialog(this, "Show results", wxSize(600,400), dBM);
-    int width = 0;
-    int height = 0;
-    this->DoGetSize(&width, &height);
 
-    wxPanel* panel = new wxPanel(this, wxID_ANY, wxPoint(0, 0), wxSize(400 , 50), wxALIGN_CENTER);
-    wxGridSizer* gridSizer = new wxGridSizer(2, 2, wxSize(1, 1));
-    //wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
-    //sizer->Add(new wxStaticText(this, wxID_ANY, "Text to change",  wxDefaultPosition, wxSize(width/2, 20)), 0, 10, wxALL);
-    //sizer->Add(new wxTextCtrl(this, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width/2,20)), 0, 10 , wxALL);
+        results = new DataDialog(this, "Show results", wxSize(600, 400), dBM);
+        int width = 0;
+        int height = 0;
+        this->DoGetSize(&width, &height);
 
-    textCtrl = new wxTextCtrl(panel, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width / 3, 20));
-    textCtrl01 = new wxTextCtrl(panel, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width / 3, 20));
-    wxButton* button1 = new wxButton(panel, BUTTON1, "add record");
-    wxButton* button2 = new wxButton(panel, BUTTON2, "Show results");
-    button1->Bind(wxEVT_BUTTON, &MyFrame::onButtonClicked01, this);
-    button2->Bind(wxEVT_BUTTON, &MyFrame::onButtonClicked02, this);
-    gridSizer->Add(textCtrl,  wxALIGN_CENTER_VERTICAL | wxALL);
-    gridSizer->Add(textCtrl01, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
-    gridSizer->Add(button1, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
-    gridSizer->Add(button2, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
-    panel->SetSizerAndFit(gridSizer);
-    wxPanel* panel01 = new wxPanel(this, wxID_ANY, wxPoint(0, 51), wxSize(800 , 100));
+        wxPanel* panel = new wxPanel(this, wxID_ANY, wxPoint(0, 0), wxSize(400, 50), wxALIGN_CENTER);
+        wxGridSizer* gridSizer = new wxGridSizer(2, 2, wxSize(1, 1));
+        //wxBoxSizer* sizer = new wxBoxSizer(wxHORIZONTAL);
+        //sizer->Add(new wxStaticText(this, wxID_ANY, "Text to change",  wxDefaultPosition, wxSize(width/2, 20)), 0, 10, wxALL);
+        //sizer->Add(new wxTextCtrl(this, wxID_ANY, "also must be changed", wxDefaultPosition, wxSize(width/2,20)), 0, 10 , wxALL);
+
+        textCtrl = new wxTextCtrl(panel, wxID_ANY, "0", wxDefaultPosition, wxSize(width / 3, 20));
+        textCtrl01 = new wxTextCtrl(panel, wxID_ANY, "Ahmed", wxDefaultPosition, wxSize(width / 3, 20));
+        wxButton* button1 = new wxButton(panel, BUTTON1, "add record");
+        wxButton* button2 = new wxButton(panel, BUTTON2, "Show results");
+        button1->Bind(wxEVT_BUTTON, &MyFrame::onButtonClicked01, this);
+        button2->Bind(wxEVT_BUTTON, &MyFrame::onButtonClicked02, this);
+        gridSizer->Add(textCtrl, wxALIGN_CENTER_VERTICAL | wxALL);
+        gridSizer->Add(textCtrl01, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
+        gridSizer->Add(button1, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
+        gridSizer->Add(button2, wxALIGN_CENTER_HORIZONTAL | wxALIGN_CENTER_VERTICAL | wxALL);
+        panel->SetSizerAndFit(gridSizer);
+        wxPanel* panel01 = new wxPanel(this, wxID_ANY, wxPoint(0, 51), wxSize(800, 100));
+    }
+
+    void MyFrame::onButtonClicked01(wxCommandEvent& event)
+    {
+        //dBM->add_record( "1", "Ahmed");
+        dBM->add_record(textCtrl->GetLineText(0), textCtrl01->GetLineText(0));
+
+    }
+
+    void MyFrame::onButtonClicked02(wxCommandEvent& event)
+    {
+        results = new DataDialog(this, "Show results", wxSize(400, 300), dBM);
+        results->Show(true);
+    }
+
+    MyFrame::~MyFrame()
+    {
+    }
+
+
+    //
+    //BEGIN_EVENT_TABLE(MyFrame, wxFrame)
+    //    EVT_BUTTON(BUTTON1, MyFrame::onButtonClicked01)
+    //    EVT_BUTTON(BUTTON2, MyFrame::onButtonClicked02)
+    //END_EVENT_TABLE()
+
 }
-
-void MyFrame::onButtonClicked01(wxCommandEvent& event)
-{
-    //dBM->add_record( "1", "Ahmed");
-    dBM->add_record(textCtrl->GetLineText(0), textCtrl01->GetLineText(0));
-
-}
-
-void MyFrame::onButtonClicked02(wxCommandEvent& event)
-{
-    results = new DataDialog(this, "Show results", wxSize(400,300), dBM);
-    results->Show(true);
-}
-
-MyFrame::~MyFrame()
-{
-}
-
-
-//
-//BEGIN_EVENT_TABLE(MyFrame, wxFrame)
-//    EVT_BUTTON(BUTTON1, MyFrame::onButtonClicked01)
-//    EVT_BUTTON(BUTTON2, MyFrame::onButtonClicked02)
-//END_EVENT_TABLE()

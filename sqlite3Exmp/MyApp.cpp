@@ -1,7 +1,7 @@
 #include "MyApp.h"
 #include "MyFrame.h"
 
-using namespace ExmpApp;
+namespace ExmpApp {
 
     wxIMPLEMENT_APP(MyApp);
 
@@ -12,3 +12,4 @@ using namespace ExmpApp;
         return true;
 
     }
+}

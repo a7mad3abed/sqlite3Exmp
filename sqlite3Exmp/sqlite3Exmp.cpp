@@ -8,6 +8,7 @@ using namespace ExmpApp;
 int main()
 {
 
+    
     MyApp *myApp = new MyApp();
     myApp->OnInit();
     //DBManager* dbman = new DBManager();

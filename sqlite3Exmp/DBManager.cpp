@@ -1,6 +1,6 @@
 #include "DBManager.h"
 
-using namespace ExmpApp;
+namespace ExmpApp {
 
     DBManager::DBManager()
     {
@@ -189,4 +189,4 @@ using namespace ExmpApp;
         }
 
     }
-
+}
